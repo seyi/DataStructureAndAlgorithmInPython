@@ -74,6 +74,15 @@ class DequeAsArray(QueueAsArray,Deque):
                 raise ContainerEmpty
             return self._array[self._tail]
         
+        def enqeueTail(self,obj):
+            if self._count == len(self._array):
+                raise ContainerFull
+            if self._tail == 0:
+                self._tail = len(self._array) -1
+            else:
+                self._tail = self._tail -1
+            self._array[self._tail] = obj
+            self._count += 1
         def dequeueTail(self):
             """ removes object at the tail of the queue, returning the
                 object removed
