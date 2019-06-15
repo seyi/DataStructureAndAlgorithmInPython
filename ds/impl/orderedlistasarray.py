@@ -35,7 +35,7 @@ class OrderedListAsArray(OrderedList):
         '''
         Constructor
         '''
-        super(OrderedListAsArray, self).__init__()
+        super(OrderedListAsArray, self).__init__(size)
         self._array = Array(size)
         
     def insert(self,obj):
