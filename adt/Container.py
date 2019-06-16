@@ -5,6 +5,7 @@ Created on May 25, 2019
 '''
 from adt.abstractmethod import abstractmethod
 from adt.visitor import Visitor
+import sys
 
 class Container(object):
     '''
@@ -43,3 +44,8 @@ class Container(object):
     
     def accept(self,visitor):
         assert(isinstance(visitor, Visitor))
+        
+    def __hash__(self):
+        result = hash(self.__class__)
+        for obj in self:
+            result = (result + hash(obj)) & sys.maxint

@@ -38,11 +38,23 @@ class Test(unittest.TestCase):
         self.assertEqual(self.sl.find(8000),None)
         
     def testfindposition(self):
-        self.assertEqual(self.sl.findPosition(50)._offset,100)
+        self.assertEqual(self.sl.findPosition(50)._offset,46)
         
     def testwithdraw(self):
         self.sl.withdraw(50);
         self.assertEqual(self.sl.findOffset(50),-1)
+        
+    def testHash(self):
+        #=======================================================================
+        # self.assertEqual(hash(self.sl),283843037)
+        # self.sl.insert('Christ Consciousness')
+        # self.assertEqual(hash(self.sl),285341081)
+        # self.sl.insert('Christ Consciousness')
+        # self.assertEqual(hash(self.sl),285341081)
+        #=======================================================================
+        v = hash(self.sl)
+        for i in range(1000):
+            self.assertNotEqual(v,hash(self.sl.insert(i)))
 
 
 if __name__ == "__main__":

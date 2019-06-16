@@ -54,4 +54,8 @@ class Association(object):
         def __str__(self):
             """ A textual representation of the association class"""
             return "Association %s " % str(self._tuple)
+        
+        def __hash__(self):
+            return hash(self.key)
+            
             

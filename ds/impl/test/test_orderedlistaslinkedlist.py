@@ -43,6 +43,14 @@ class Test(unittest.TestCase):
         c.insertAfter((1,2,3,4))
         self.assertEqual(self.ol.findPosition((1,2,3,4)).getDatum(),c._element._next._datum)
         
+    def testhash(self):
+        v = 0
+        for i in range(10000000):
+            self.ol.insert(i)
+            self.assertNotEqual(v,hash(self.ol),'error at %s v=%s'%(i,v))
+            v = hash(self.ol)
+
+        
 
 
 if __name__ == "__main__":
