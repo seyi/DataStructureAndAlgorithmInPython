@@ -5,6 +5,8 @@ Created on 4 Jun 2019
 '''
 
 from adt.exceptions.exceptions import ContainerEmpty
+from datastructureandalgorithminpython.adt.it import Iterator
+
 
 
 class LinkedList(object):
@@ -76,11 +78,11 @@ class LinkedList(object):
         prevPtr = None
         while ptr is not None and ptr._datum is not item:
             prevPtr = ptr
-            print('PPBEfore: '+prevPtr.__dict__.__str__())
+            
             ptr = ptr._next
             #assert(prevPtr != ptr) , prevPtr.__dict__.__str__() + ' == ' + ptr.__dict__.__str__()
             #print('PPAfter ptr._next modification: '+prevPtr.__dict__.__str__())
-            print('ptr: '+ptr.__dict__.__str__())
+            
             
         if ptr is None:
             raise KeyError
@@ -134,6 +136,37 @@ class LinkedList(object):
                 while prevPtr is not None and prevPtr._next is not self:
                     prevPtr = prevPtr._next
                     prevPtr._next = tmp
+                    
+    class Iterator(Iterator):
+        
+        def __init__(self,list):
+            super(Iterator, self).__init__()
+            self._ptr = list.getHead()
+            
+        def next(self):
+            if self._ptr is None:
+                raise StopIteration
+            else:
+                
+                item = self._ptr._datum
+                self._ptr = self._ptr._next
+                return item
+            
+    def __iter__(self):
+        return LinkedList.Iterator(self)
+    
+if __name__ == '__main__':
+    ll = LinkedList()
+    ll.append("Hello")
+    ll.append("World")
+    
+    it = iter(ll)
+    
+    while True:
+        try:
+            print(next(it))
+        except StopIteration:
+            break     
         
         
             

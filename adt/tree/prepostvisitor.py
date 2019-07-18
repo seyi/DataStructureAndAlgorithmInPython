@@ -56,6 +56,5 @@ class PrepostVisitor(Visitor):
     def postVisit(self,obj):
         pass
     postVisit = abstractmethod(postVisit)
-    
-    visit = inVisit()
+
         

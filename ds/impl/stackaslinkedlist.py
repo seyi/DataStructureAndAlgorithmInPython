@@ -3,11 +3,11 @@ Created on 9 Jun 2019
 
 @author: anointedone
 '''
-from adt.l_list import LinkedList
-from adt.exceptions.exceptions import ContainerEmpty
-from adt.visitor import Visitor
-from adt.it import Iterator
-from adt.stack import Stack
+from datastructureandalgorithminpython.adt.l_list import LinkedList
+from datastructureandalgorithminpython.adt.exceptions.exceptions import ContainerEmpty
+from datastructureandalgorithminpython.adt.visitor import Visitor
+from datastructureandalgorithminpython.adt.it import Iterator
+from datastructureandalgorithminpython.adt.stack import Stack
 
 class StackAsLinkedList(Stack):
     '''

@@ -11,3 +11,7 @@ class ContainerEmpty(Exception):
 class ContainerFull(Exception):
     """ The Container object is full"""
     pass
+class StateError(Exception):
+    """ Invalid State encountered"""
+class IllegalArgumentError(Exception):
+    """ Illegal argument"""

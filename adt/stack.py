@@ -3,7 +3,7 @@ Created on May 25, 2019
 
 @author: anointedone
 '''
-from Container import Container
+from datastructureandalgorithminpython.adt.Container import Container
 from adt.abstractmethod import abstractmethod
 
 class Stack(Container):

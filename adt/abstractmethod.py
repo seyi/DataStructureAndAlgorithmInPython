@@ -19,7 +19,6 @@ class abstractmethod(object):
         self._func = func
 
     def __get__(self,obj,type):
-        print("Get called, func name: %s , with class name %s . "%(obj,type.__name__))
         return self.method(obj,self._func,type)
 
     class method(object):
@@ -33,4 +32,4 @@ class abstractmethod(object):
         def __call__(self,*args,**kwargs):
             msg = "Abstract method %s of class %s called. " %(
                         self._func.__name__,self._class.__name__)
-            raise TypeError, msg
+            raise TypeError(msg)
